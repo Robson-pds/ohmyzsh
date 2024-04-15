@@ -439,19 +439,19 @@ EOF
   # On systems that don't have a user with passwordless sudo, the user will
   # be prompted for the password either way, so this shouldn't cause any issues.
   #
-  if user_can_sudo; then
-    sudo -k chsh -s "$zsh" "$USER"  # -k forces the password prompt
-  else
-    chsh -s "$zsh" "$USER"          # run chsh normally
-  fi
+  #if user_can_sudo; then
+  #  sudo -k chsh -s "$zsh" "$USER"  # -k forces the password prompt
+  #else
+  #  chsh -s "$zsh" "$USER"          # run chsh normally
+  #fi
 
   # Check if the shell change was successful
-  if [ $? -ne 0 ]; then
-    fmt_error "chsh command unsuccessful. Change your default shell manually."
-  else
-    export SHELL="$zsh"
-    echo "${FMT_GREEN}Shell successfully changed to '$zsh'.${FMT_RESET}"
-  fi
+  #if [ $? -ne 0 ]; then
+  #  fmt_error "chsh command unsuccessful. Change your default shell manually."
+  #else
+  #  export SHELL="$zsh"
+  #  echo "${FMT_GREEN}Shell successfully changed to '$zsh'.${FMT_RESET}"
+  #fi
 
   echo
 }
